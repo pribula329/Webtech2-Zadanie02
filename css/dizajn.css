@@ -4,6 +4,12 @@
     background-color: white;
 
 }
+.tabulkaDetail{
+    height: 300px;
+    overflow-y: auto;
+    background-color: white;
+
+}
 
 th{
     position: sticky;
@@ -11,4 +17,15 @@ th{
 }
 header{
     text-align: center;
+}
+
+.kurzor{
+    cursor: pointer;
+}
+
+.form-control{
+    float: none;
+}
+.upozornenie{
+    color: red;
 }

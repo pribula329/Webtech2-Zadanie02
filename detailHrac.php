@@ -13,21 +13,23 @@
 <?php
 
 $hrac = $_GET["hrac"];
+//overenie ci je zadany hrac
+if(!isset($_GET["hrac"])){
+    header('Location:'.'../404.html');
+}
 
 include_once("login.php");
 $conn = pokusLogin();
 
-$stm = $conn->query("select person.id,person.name,person.surname,person.birth_day,person.birth_place,person.birth_country,person.death_day, person.death_place,person.death_country, 
-                            oh.year,oh.city,oh.country, placing.discipline, placing.placing
-                            from person,oh,placing where person.id = placing.person_id
-                                                     and placing.oh_id = oh.id ");
+$stm = $conn->query("select * from person");
 
 
 $detail = $stm->fetchAll(PDO::FETCH_ASSOC);
-
+$existuje = 0;
 foreach ($detail as $jeden) {
 
     if ($jeden["id"] == $hrac) {
+        $existuje = 1;
         echo '<h1>' . $jeden["name"] . " " . $jeden["surname"] . '</h1><br>';
         echo '<div class="row">
                 <div class="col" id="lavaStrana">
@@ -49,10 +51,14 @@ foreach ($detail as $jeden) {
 
 
 }
+//ak neexistuje hrac s takym id
+if ($existuje!=1){
+    header('Location:'.'../404.html');
 
+}
 echo '
                 <h2>Výsledky športovca</h2>
-                    <div class="tabulka">
+                    <div class="tabulkaDetail">
                         <table   class=" table table-striped" id="table">
                             <thead class="table-dark">
                                 <tr>
@@ -64,7 +70,11 @@ echo '
                                 </tr>
                             </thead>
                             <tbody >';
-
+$stm = $conn->query("select person.id,person.name,person.surname,person.birth_day,person.birth_place,person.birth_country,person.death_day, person.death_place,person.death_country, 
+                            oh.year,oh.city,oh.country, placing.discipline, placing.placing
+                            from person,oh,placing where person.id = placing.person_id
+                                                     and placing.oh_id = oh.id ");
+$detail = $stm->fetchAll(PDO::FETCH_ASSOC);
 foreach ($detail as $jeden) {
 
     if ($jeden["id"] == $hrac) {

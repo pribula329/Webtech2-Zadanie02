@@ -36,17 +36,19 @@
                                     <th scope="col">Meno</th>
                                     <th scope="col">Priezvisko</th>
                                     <th scope="col">Počet zlatých medaily</th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody >';
 
-        //vytvaranie tabulky podla honot
+        //vytvaranie tabulky top10
         foreach ($top10 as $top1) {
             echo '
                               <tr>
-                                <td onclick="dostanHraca('.$top1["id"].')">' . $top1["name"] . '</td>
-                                <td>' . $top1["surname"] . '</td>
+                                <td  class="kurzor" onclick="dostanHraca('.$top1["id"].')">' . $top1["name"] . '</td>
+                                <td  class="kurzor" onclick="dostanHraca('.$top1["id"].')">' . $top1["surname"] . '</td>
                                 <td>' . $top1["pocet"] . '</td>
+                                <td><a class="btn btn-primary" href="update.php?upd='.$top1["id"].'" role="button">Update</a></td>
                               </tr>';
 
         }
@@ -60,7 +62,10 @@
 
 
     </section>
+    <br>
     <button onclick="window.location='index.php'" class="btn btn-warning">Rebríček víťazov OH</button>
+    <a class="btn btn-success" href="vytvorHraca.php" role="button">Vytvorenie hráča</a>
+    <a class="btn btn-success" href="vytvorUmiestnenie.php" role="button">Vytvorenie umiestnenia</a>
 
 </main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

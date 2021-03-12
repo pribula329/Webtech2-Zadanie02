@@ -13,21 +13,23 @@ function generovanieTabulky($hodnoty)
     <th scope="col">Miesto konania OH</th>
     <th scope="col">Typ OH</th>
     <th scope="col">Disciplína</th>
+    <th scope="col"></th>
     </tr>
 </thead>
 <tbody >';
 
-    //vytvaranie tabulky podla honot
+    //vytvaranie tabulky vitazov
     foreach ($hodnoty as $hodnota)
     {
 
         echo '<tr>
-                <td onclick="dostanHraca('.$hodnota["id"].')">'.$hodnota["name"]. '</td>
-                <td>'.$hodnota["surname"]. '</td>
+                <td class="kurzor" onclick="dostanHraca('.$hodnota["id"].')">'.$hodnota["name"]. '</td>
+                <td class="kurzor" onclick="dostanHraca('.$hodnota["id"].')">'.$hodnota["surname"]. '</td>
                 <td>'.$hodnota["year"]. '</td>
                 <td>'.$hodnota["city"]. '</td>
                 <td>'.$hodnota["type"]. '</td>
                 <td>'.$hodnota["discipline"]. '</td>
+                <td><a class="btn btn-primary" href="update.php?upd='.$hodnota["id"].'" role="button">Update</a></td>
               </tr>';
 
     }
