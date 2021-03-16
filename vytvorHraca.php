@@ -19,6 +19,7 @@ if (isset($_POST["meno"])){
 <form action="vytvorHraca.php" method="post">
     <div class="row">
         <div id="lavaStrana" class="col-md-6">
+            <br>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Meno</span>
@@ -54,6 +55,7 @@ if (isset($_POST["meno"])){
         </div>
 
         <div id="pravaStrana" class="col-md-6">
+            <br>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Priezvisko</span>
@@ -89,9 +91,10 @@ if (isset($_POST["meno"])){
 
     </div>
 
-
-    <input type="submit" value="Submit">
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<br>
 <button onclick="window.location='top10.php'" class="btn btn-warning">Rebríček Top 10 hráčov</button>
 <button onclick="window.location='index.php'" class="btn btn-warning">Rebríček víťazov OH</button>
 </body>

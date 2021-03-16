@@ -14,7 +14,7 @@
     <h1>Vytváranie umiestnenia</h1>
 </header>
 <main class="container">
-
+<br>
     <?php
     if (isset($_POST["idOsoba"])) {
         if ($_POST["idOsoba"] == "null" || $_POST["idOH"] == "null") {
@@ -38,18 +38,22 @@ vyberHraca();
             </div>
             <input required type="text" id="disciplina" class="form-control" name="disciplina">
         </div>
+        <br>
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">Umiestenie</span>
             </div>
             <input required type="number" id="umiestnenue" class="form-control" name="umiestnenie">
         </div>
-        <input type="submit" value="Submit">
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-
+    <br>
 
     <button onclick="window.location='top10.php'" class="btn btn-warning">Rebríček Top 10 hráčov</button>
     <button onclick="window.location='index.php'" class="btn btn-warning">Rebríček víťazov OH</button>
+    <br>
+    <br>
 </main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/jquery-3.5.1.min.js"></script>
@@ -90,10 +94,10 @@ function vyberHraca(){
 
     foreach ($olympiady as $oh1){
 
-        echo '<option " value='.$oh1["id"].'>'.$oh1["city"].' '.$oh1["year"].'</option>';
+        echo '<option  value='.$oh1["id"].'>'.$oh1["city"].' '.$oh1["year"].'</option>';
 
     }
-    echo '</select>';
+    echo '</select> <br>';
 
 
 

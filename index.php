@@ -39,11 +39,11 @@
     <br>
     <button onclick="window.location='top10.php'" class="btn btn-warning">Rebríček Top 10 hráčov</button>
     <a class="btn btn-success" href="vytvorHraca.php" role="button">Vytvorenie hráča</a>
-    <a class="btn btn-success" href="vytvorUmiestnenie.php" role="button">Vytvorenie umiestnenia</a>
+    <a class="btn btn-info" href="vytvorUmiestnenie.php" role="button">Vytvorenie umiestnenia</a>
 </main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/jquery-3.5.1.min.js"></script>
-<script src="js/sorttable.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>

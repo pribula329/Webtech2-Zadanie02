@@ -28,14 +28,15 @@
         $top10 = $stm->fetchAll(PDO::FETCH_ASSOC);
 
         echo '
-                <h2>Tabuľka športovcov</h2>
+                <h2 id="gen">Tabuľka športovcov</h2>
                     <div class="tabulka">
-                        <table   class=" table table-striped" id="table">
+                        <table   class=" sortable table table-striped" id="table">
                             <thead class="table-dark">
                                 <tr>
                                     <th scope="col">Meno</th>
                                     <th scope="col">Priezvisko</th>
                                     <th scope="col">Počet zlatých medaily</th>
+                                    <th scope="col"></th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
@@ -49,6 +50,7 @@
                                 <td  class="kurzor" onclick="dostanHraca('.$top1["id"].')">' . $top1["surname"] . '</td>
                                 <td>' . $top1["pocet"] . '</td>
                                 <td><a class="btn btn-primary" href="update.php?upd='.$top1["id"].'" role="button">Update</a></td>
+                                <td><a class="btn btn-danger" href="delete.php?del='.$top1["id"].'" role="button">Delete</a></td>
                               </tr>';
 
         }
@@ -65,7 +67,7 @@
     <br>
     <button onclick="window.location='index.php'" class="btn btn-warning">Rebríček víťazov OH</button>
     <a class="btn btn-success" href="vytvorHraca.php" role="button">Vytvorenie hráča</a>
-    <a class="btn btn-success" href="vytvorUmiestnenie.php" role="button">Vytvorenie umiestnenia</a>
+    <a class="btn btn-info" href="vytvorUmiestnenie.php" role="button">Vytvorenie umiestnenia</a>
 
 </main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

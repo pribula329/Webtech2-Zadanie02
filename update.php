@@ -9,15 +9,15 @@
 
 </head>
 <body class="container">
-
+<h1>Update olympionika</h1>
 <?php
 if (isset($_POST["id"])){ //overenie ci je zadany hrac po update
     postMetoda();
-    echo 'som post';
+
 }
 else if(isset($_GET["upd"])){ //overenie ci je update
     $update = getMetoda();
-    echo 'som get';
+
     }
 else { //ak nic tak chyba
     header('Location:'.'../404.html');
@@ -29,6 +29,7 @@ else { //ak nic tak chyba
     <input  type="hidden" id="id" name="id" value="<?php echo isset($update["id"])? $update["id"] : null; ?>"><br>
 <div class="row">
     <div id="lavaStrana" class="col-md-6">
+        <br>
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">Meno</span>
@@ -44,7 +45,7 @@ else { //ak nic tak chyba
             <input required type="text" id="datum" class="form-control" name="DN" value="<?php echo isset($update["birth_day"])? $update["birth_day"] : null; ?>">
 
         </div>
-        <small  class="form-text text-muted">Dátum zadávajte vo formate DD.MM.RRRR</small>
+        <small  >Dátum zadávajte vo formate DD.MM.RRRR</small>
         <br>
         <div class="input-group">
             <div class="input-group-prepend">
@@ -64,6 +65,7 @@ else { //ak nic tak chyba
     </div>
 
     <div id="pravaStrana" class="col-md-6">
+        <br>
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">Priezvisko</span>
@@ -79,7 +81,7 @@ else { //ak nic tak chyba
             <input  type="text" id="datumU" class="form-control" name="DU" value="<?php echo isset($update["death_day"])? $update["death_day"] : null; ?>">
 
         </div>
-        <small  class="form-text text-muted">Dátum zadávajte vo formate DD.MM.RRRR</small>
+        <small>Dátum zadávajte vo formate DD.MM.RRRR</small>
         <br>
         <div class="input-group">
             <div class="input-group-prepend">
@@ -98,10 +100,11 @@ else { //ak nic tak chyba
     </div>
 
 </div>
+<br>
 
-
-    <input type="submit" value="Submit">
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<br>
 <button onclick="window.location='top10.php'" class="btn btn-warning">Rebríček Top 10 hráčov</button>
 <button onclick="window.location='index.php'" class="btn btn-warning">Rebríček víťazov OH</button>
 </body>
@@ -120,7 +123,7 @@ function getMetoda(){
     $stm->execute();
 
     $update = $stm->fetch(PDO::FETCH_ASSOC);
-    var_dump($update);
+
     if ($update==false){
         header('Location:'.'../404.html');
     }
@@ -133,7 +136,7 @@ function getMetoda(){
 function postMetoda(){
 
     $conn = loginMetoda();
-    var_dump($_POST["id"]);
+
     $stm = $conn->prepare("UPDATE person SET name=?, surname=?, birth_day=?, birth_place=?, birth_country=?,
                                     death_day=?, death_place=?, death_country=? WHERE person.id=?");
     $stm->bindValue(1,$_POST["meno"]);

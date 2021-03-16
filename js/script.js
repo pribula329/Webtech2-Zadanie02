@@ -6,3 +6,17 @@ function dostanHraca(nazov) {
 
 
 }
+
+$(document).ready(function() {
+    $('#table1').DataTable( {
+        columnDefs: [ {
+            targets: [ 4 ],
+            orderData: [4, 2 ]
+        }],
+        "searching": false,
+        "paging": false,
+        "lengthChange": false,
+        "info": false,
+        "order": [[2,'desc']],
+    } );
+} );

@@ -31,16 +31,16 @@ foreach ($detail as $jeden) {
     if ($jeden["id"] == $hrac) {
         $existuje = 1;
         echo '<h1>' . $jeden["name"] . " " . $jeden["surname"] . '</h1><br>';
-        echo '<div class="row">
+        echo '<div class="row detail">
                 <div class="col" id="lavaStrana">
-                    <p>Datum narodenia: ' . $jeden["birth_day"] . '</p><br>
-                    <p>Miesto narodenia: ' . $jeden["birth_place"] . '</p><br>
-                    <p>Krajina narodenia: ' . $jeden["birth_country"] . '</p><br>
+                    <p><strong>Datum narodenia: </strong>' . $jeden["birth_day"] . '</p><br>
+                    <p><strong>Miesto narodenia: </strong>' . $jeden["birth_place"] . '</p><br>
+                    <p><strong>Krajina narodenia: </strong>' . $jeden["birth_country"] . '</p><br>
                 </div>
                 <div class="col" id="pravaStrana">
-                    <p>Datum umrtia: ' . $jeden["death_day"] . '</p><br>
-                    <p>Miesto umrtia: ' . $jeden["death_place"] . '</p><br>
-                    <p>Krajina umrtia: ' . $jeden["death_country"] . '</p><br>
+                    <p><strong>Datum umrtia: </strong>' . $jeden["death_day"] . '</p><br>
+                    <p><strong>Miesto umrtia: </strong>' . $jeden["death_place"] . '</p><br>
+                    <p><strong>Krajina umrtia: </strong>' . $jeden["death_country"] . '</p><br>
                 </div>
                 
                 
