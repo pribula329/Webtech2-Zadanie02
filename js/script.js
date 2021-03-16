@@ -17,6 +17,6 @@ $(document).ready(function() {
         "paging": false,
         "lengthChange": false,
         "info": false,
-        "order": [[2,'desc']],
+        "order": [[1,'asc']],
     } );
 } );
